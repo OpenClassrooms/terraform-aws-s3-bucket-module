@@ -35,6 +35,33 @@ variable "bucket_policy" {
   type        = map(string)
   default     = {}
 }
+variable "bucket_cors" {
+  description = "The bucket cors"
+  type        = bool
+  default     = false
+}
+
+variable "bucket_website" {
+  description = "The bucket website"
+  type        = bool
+  default     = false
+}
+
+variable "bucket_website_index_document" {
+  description = "default website index document"
+  default     = "index.html"
+}
+
+variable "bucket_website_error_document" {
+  description = "default website error document"
+  default     = "error.html"
+}
+
+variable "bucket_website_routing_rule" {
+  description = "default website routing rules"
+  type        = map(any)
+  default     = {}
+}
 
 variable "tags" {
   description = "The tags to apply"
