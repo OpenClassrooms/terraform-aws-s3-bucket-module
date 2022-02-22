@@ -41,6 +41,12 @@ variable "bucket_cors" {
   default     = false
 }
 
+variable "bucket_website_cors_rule" {
+  description = "default website cors rules"
+  type        = map(any)
+  default     = {}
+}
+
 variable "bucket_website" {
   description = "The bucket website"
   type        = bool
