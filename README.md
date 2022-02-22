@@ -1,4 +1,4 @@
-# AAWS S3 bucket Terraform module
+# AWS S3 bucket Terraform module
 
 Terraform module which provision AWS S3 bucket.
 
