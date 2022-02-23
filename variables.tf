@@ -24,9 +24,9 @@ variable "bucket_versioning" {
   default     = false
 }
 
-variable "bucket_lifecycle_configuration" {
-  description = "The bucket lifecycle configuration"
-  type        = map(string)
+variable "bucket_lifecycle_configuration_rules" {
+  description = "The bucket lifecycle configuration rules"
+  type        = map(any)
   default     = {}
 }
 
@@ -79,4 +79,10 @@ variable "environment_variables" {
   description = "Environment variables for lambda function"
   default     = {}
   type        = map(any)
+}
+
+variable "bucket_ownership_owner_prefered" {
+  description = "BucketOwnerPreferred value"
+  type        = bool
+  default     = true
 }
