@@ -4,7 +4,6 @@ variable "default_tags" {
     deployed_by        = "terraform"
     stack              = "infra"
     module_github_repo = "https://github.com/OpenClassrooms/terraform-aws-s3-bucket-module"
-    name               = var.bucket_name
   }
 }
 
@@ -26,22 +25,23 @@ variable "bucket_versioning" {
 
 variable "bucket_lifecycle_configuration_rules" {
   description = "The bucket lifecycle configuration rules"
-  type        = map(any)
+  #type        = map(map(any))
   default     = {}
 }
 
 variable "bucket_policy" {
   description = "The bucket policy"
-  type        = map(string)
+  #type        = map(string)
   default     = {}
 }
-variable "bucket_cors" {
-  description = "The bucket cors"
-  type        = bool
-  default     = false
+
+variable "bucket_cors_rules" {
+  description = "The bucket cors rules"
+  #type        = bool
+  default     = {}
 }
 
-variable "bucket_website_cors_rule" {
+variable "bucket_website_cors_rules" {
   description = "default website cors rules"
   type        = map(any)
   default     = {}

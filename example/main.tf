@@ -5,20 +5,26 @@ module "my_example_module" {
   bucket_acl        = "private"
   bucket_versioning = true
 
-  bucket_lifecycle_configuration {
+  bucket_lifecycle_configuration_rules = [
+    {
     id = "test_bucket"
 
     status = "Enabled"
 
-    transition {
-      days          = 60
-      storage_class = "GLACIER"
-    }
+    transition = [
+      {
+        days          = 60
+        storage_class = "GLACIER"
+      }
+    ]
 
-    expiration {
-      days = 300
-    }
+    expiration = [
+      {
+        days = 300
+      }
+    ]
   }
+  ]
 
   bucket_policy = <<POLICY
 {
