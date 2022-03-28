@@ -86,3 +86,8 @@ variable "bucket_ownership_owner_prefered" {
   type        = bool
   default     = true
 }
+
+variable "aws_region" {
+  description = "The AWS region to create the infrastructure in"
+  default     = "eu-west-3"
+}
