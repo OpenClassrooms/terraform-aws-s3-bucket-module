@@ -26,19 +26,19 @@ variable "bucket_versioning" {
 variable "bucket_lifecycle_configuration_rules" {
   description = "The bucket lifecycle configuration rules"
   #type        = map(map(any))
-  default     = {}
+  default = []
 }
 
 variable "bucket_policy" {
   description = "The bucket policy"
   #type        = map(string)
-  default     = {}
+  default = {}
 }
 
 variable "bucket_cors_rules" {
   description = "The bucket cors rules"
   #type        = bool
-  default     = {}
+  default = {}
 }
 
 variable "bucket_website_cors_rules" {
