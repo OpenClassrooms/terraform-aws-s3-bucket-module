@@ -94,6 +94,6 @@ variable "aws_region" {
 
 variable "bucket_role" {
   description = "Do you want to attach a role to your bucket?"
-  type        = bool
-  default     = false
+  type        = map(any)
+  default     = {}
 }
