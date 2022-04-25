@@ -91,3 +91,9 @@ variable "aws_region" {
   description = "The AWS region to create the infrastructure in"
   default     = "eu-west-3"
 }
+
+variable "bucket_role" {
+  description = "Do you want to attach a role to your bucket?"
+  type        = bool
+  default     = false
+}
