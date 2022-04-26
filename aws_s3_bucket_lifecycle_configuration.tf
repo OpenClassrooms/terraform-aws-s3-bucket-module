@@ -10,7 +10,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "s3_bucket" {
 
 
       dynamic "transition" {
-        for_each = rule.value["transition"]
+        for_each = try(rule.value["transition"] , [])
         content {
           date          = try(transition.value["date"], null)
           days          = try(transition.value["days"], null)
@@ -19,7 +19,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "s3_bucket" {
       }
 
       dynamic "expiration" {
-        for_each = rule.value["expiration"]
+        for_each = try(rule.value["expiration"] , [])
         content {
           date                         = try(expiration.value["date"], null)
           days                         = try(expiration.value["days"], null)
