@@ -12,7 +12,7 @@ resource "aws_s3_bucket_website_configuration" "s3_bucket" {
   }
 
   dynamic "routing_rule" {
-    for_each = try(flatten([var.bucket_website_routing_rules]), [])
+    for_each = try(var.bucket_website_routing_rules, [])
 
     content {
       dynamic "condition" {
