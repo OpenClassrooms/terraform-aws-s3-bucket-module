@@ -63,9 +63,9 @@ variable "bucket_website_error_document" {
   default     = "error.html"
 }
 
-variable "bucket_website_routing_rule" {
+variable "bucket_website_routing_rules" {
   description = "default website routing rules"
-  type        = map(any)
+  type        = any
   default     = {}
 }
 
