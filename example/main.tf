@@ -4,26 +4,35 @@ module "my_example_module" {
   bucket_name       = "test_bucket"
   bucket_acl        = "private"
   bucket_versioning = true
+  bucket_website    = true
 
   bucket_lifecycle_configuration_rules = [
     {
-    id = "test_bucket"
+      id     = "test_bucket"
+      status = "Enabled"
+      transition = [
+        {
+          days          = 60
+          storage_class = "GLACIER"
+        }
+      ]
+      expiration = [
+        {
+          days = 300
+        }
+      ]
+    }
+  ]
 
-    status = "Enabled"
-
-    transition = [
-      {
-        days          = 60
-        storage_class = "GLACIER"
+  bucket_website_routing_rules = [
+    {
+      condition = {
+        http_error_code_returned_equals = 404
       }
-    ]
-
-    expiration = [
-      {
-        days = 300
+      redirect = {
+        replace_key_prefix_with = "index.html"
       }
-    ]
-  }
+    }
   ]
 
   bucket_policy = <<POLICY
