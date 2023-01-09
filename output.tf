@@ -1,6 +1,6 @@
 output "name" {
   description = "The bucket name"
-  value       = aws_s3_bucket.s3_bucket.name
+  value       = aws_s3_bucket.s3_bucket.id
 }
 output "arn" {
   description = "The bucket ARN"
