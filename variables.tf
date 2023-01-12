@@ -97,3 +97,15 @@ variable "bucket_role" {
   type        = map(any)
   default     = {}
 }
+
+variable "sqs_enabled" {
+  description = "Do you want your s3 send event in a SQS message"
+  type        = bool
+  default     = false
+}
+
+variable "sqs_queues_config" {
+  description = "The SQS queues configs"
+  type        = list(map)
+  default     = []
+}

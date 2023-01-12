@@ -45,7 +45,14 @@ module "my_example_module" {
   ]
 }
 POLICY
-
+  sqs_enabled       = true
+  sqs_queues_config = [
+    {
+      arn    = "arn:aws:sqs:*:*:s3-event-notification-queue"
+      events = ["s3:ObjectCreated:*"]
+    }
+  ]
+  
   tags = var.tags
 }
 
