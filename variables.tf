@@ -106,6 +106,5 @@ variable "sqs_enabled" {
 
 variable "sqs_queues_config" {
   description = "The SQS queues configs"
-  type        = list(map)
   default     = []
 }
