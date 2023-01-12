@@ -1,14 +1,12 @@
-# The sqs part
-locals {
-  sqs_queues = var.sqs_enabled == true ? toset(var.sqs_queues_config) : []
-}
-
 resource "aws_s3_bucket_notification" "sqs_bucket_notification" {
-  for_each         = local.sqs_queues
+  count  = var.sqs_enabled ? 1 : 0
   bucket = aws_s3_bucket.s3_bucket.id
 
-  queue {
-    queue_arn     = each.value.arn
-    events        = each.value.events
+  dynamic "queue" {
+    for_each = var.sqs_queues_config
+    content {
+      queue_arn = queue.value["arn"]
+      events    = queue.value["events"]
+    }
   }
 }
