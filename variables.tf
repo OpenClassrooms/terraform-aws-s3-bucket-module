@@ -108,3 +108,8 @@ variable "sqs_queues_config" {
   description = "The SQS queues configs"
   default     = {}
 }
+
+variable "create_public_access_block" {
+  description = "Do you want to create public_access_block object. Avoid bc break for existing buckets (set it to false for buckets under or equals to 0.9.16)"
+  default     = true
+}
