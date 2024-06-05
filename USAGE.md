@@ -1,7 +1,3 @@
-# AWS S3 bucket Terraform module
-
-Terraform module which provision AWS S3 bucket.
-
 ## Usage
 
 ### AWS S3 bucket
