@@ -7,7 +7,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "s3_bucket" {
     content {
       id     = rule.value["id"]
       status = rule.value["status"]
-
+      prefix = try(rule.value["prefix"], "/")
 
       dynamic "transition" {
         for_each = try(rule.value["transition"], [])
@@ -26,8 +26,6 @@ resource "aws_s3_bucket_lifecycle_configuration" "s3_bucket" {
           expired_object_delete_marker = try(expiration.value["expired_object_delete_marker"], null)
         }
       }
-      #transition     = rule.value["transition"]
-      #expiration = rule.value["expiration"]
     }
   }
 }
