@@ -7,7 +7,10 @@ resource "aws_s3_bucket_lifecycle_configuration" "s3_bucket" {
     content {
       id     = rule.value["id"]
       status = rule.value["status"]
-      prefix = try(rule.value["prefix"], "/")
+
+      filter {
+        prefix = try(rule.value["prefix"], "/")
+      }
 
       dynamic "transition" {
         for_each = try(rule.value["transition"], [])
